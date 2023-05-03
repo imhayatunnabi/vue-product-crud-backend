@@ -22,6 +22,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'product_name' => 'required',
+            'product_description' => 'required',
+        ]);
         $product = Product::create([
             'product_name' => $request->product_name,
             'product_description' => $request->product_description,
